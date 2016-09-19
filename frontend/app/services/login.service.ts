@@ -25,21 +25,4 @@ export class LoginService {
 		return this.http.get(userUrl, {headers:header2});
 	}
 
-	// private headers = new Headers({'Content-Type': 'application/json'});
-
-	// constructor(private http: Http) { }
-
-	// private handleError(error: any): Promise<any> {
- //    	console.error('An error occurred', error); // for demo purposes only
- //    	return Promise.reject(error.message || error);
- //  	}
-
- //  	sendUser(user: User):  Promise<User[]>{
- //  		let userUrl = 'http://localhost:8080/user/register';
- //  		return this.http
- //      	.post(userUrl, JSON.stringify(user), {headers: this.headers})
- //      	.toPromise()
- //      	.then(res => res.json().data).catch(this.handleError);
- //  	}
-
 }
