@@ -6,6 +6,7 @@ import java.util.Map;
 import javax.servlet.ServletException;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -23,6 +24,9 @@ public class UserController {
 
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public User registerUser(@RequestBody User user) {
@@ -49,7 +53,11 @@ public class UserController {
 
 		String pwd = user.getPassword();
 
-		if (!password.equals(pwd)) {
+//		if (!password.equals(pwd)) {
+//			throw new ServletException("Invalid login. Please check your name and password.");
+//		}
+		
+		if (!passwordEncoder.matches(password, pwd)) {
 			throw new ServletException("Invalid login. Please check your name and password.");
 		}
 
