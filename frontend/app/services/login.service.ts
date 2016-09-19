@@ -25,4 +25,18 @@ export class LoginService {
 		return this.http.get(userUrl, {headers:header2});
 	}
 
+
+	checkLogin(){
+		if(localStorage.getItem("currentUserName")!="" && localStorage.getItem("token")!=""){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
+	logout(){
+		localStorage.setItem("token","");
+		localStorage.setItem("currentUserName","");
+		alert("You just logged out.");
+	}
 }

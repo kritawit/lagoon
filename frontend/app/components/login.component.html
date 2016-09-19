@@ -1,5 +1,5 @@
 <div class="ui container">
-    <form (ngSubmit)="onSubmit()" class="ui form">
+    <form (ngSubmit)="onSubmit()" class="ui form" [hidden] = "loginService.checkLogin()">
         <div class="field">
             <label for="username">
                 Username
@@ -16,4 +16,9 @@
             Login
         </button>
     </form>
+
+    <div [hidden]="!loginService.checkLogin()">
+        <h3>Logged In Sucessfully!</h3>
+        <h2>Welcome back,</h2>
+    </div>
 </div>
