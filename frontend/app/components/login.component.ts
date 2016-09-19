@@ -9,11 +9,23 @@ import {LoginService} from '../services/login.service';
 export class Login{
 	private model = {'username':'','password':''};
 
-	
 	private currentUserName;
 
+	constructor(private loginService: LoginService){}
+
+
 	onSubmit():void{
-		//to do
+		this.loginService.sendCredentials(this.model).subscribe(
+			data => {
+				localStorage.setItem("token",JSON.parse(JSON.stringify(data))._body);
+				data => {
+					this.currentUserName = this.model.username;
+					localStorage.setItem("currentUserName",this.model.username);
+					this.model.username="";
+					this.model.password="";
+				}
+			}
+		);
 	}
 
 }

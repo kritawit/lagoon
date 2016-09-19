@@ -10,6 +10,7 @@ import { SidePanel } from './components/side-panel.component';
 import { NavBar } from './components/nav-bar.component';
 import { RegisterComponent } from './components/register.component';
 import {Login} from './components/login.component';
+import { LoginService } from './services/login.service';
 
 import { RegisterService } from './services/register.service';
 
@@ -32,7 +33,7 @@ import './rxjs-extensions';
     RegisterComponent,
     Login
   ],
-  providers: [ RegisterService ],
+  providers: [ RegisterService,LoginService ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

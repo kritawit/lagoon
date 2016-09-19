@@ -9,13 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var http_1 = require('@angular/http');
 require('rxjs/add/operator/toPromise');
 var LoginService = (function () {
-    function LoginService() {
+    function LoginService(http) {
+        this.http = http;
     }
+    LoginService.prototype.sendCredentials = function (model) {
+        var tokenUrl = 'http://localhost:8080/user/login';
+        var header1 = new http_1.Headers({ 'Content-type': 'application/json' });
+        return this.http.post(tokenUrl, JSON.stringify(model), { headers: header1 });
+    };
+    LoginService.prototype.sendToken = function (token) {
+        var userUrl = 'http://localhost:8080/rest/user/users';
+        var header2 = new http_1.Headers({ 'Authorization': 'Bearer ' + token });
+        return this.http.get(userUrl, { headers: header2 });
+    };
     LoginService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], LoginService);
     return LoginService;
 }());

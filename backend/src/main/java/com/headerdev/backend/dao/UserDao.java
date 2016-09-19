@@ -10,4 +10,5 @@ public interface UserDao extends CrudRepository<User, Long>{
 	
 	User save(User user);
 	
+	User findByUserName(String userName);
 }

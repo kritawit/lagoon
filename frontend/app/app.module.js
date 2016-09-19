@@ -19,6 +19,7 @@ var side_panel_component_1 = require('./components/side-panel.component');
 var nav_bar_component_1 = require('./components/nav-bar.component');
 var register_component_1 = require('./components/register.component');
 var login_component_1 = require('./components/login.component');
+var login_service_1 = require('./services/login.service');
 var register_service_1 = require('./services/register.service');
 var app_routing_1 = require('./app.routing');
 require('./rxjs-extensions');
@@ -42,7 +43,7 @@ var AppModule = (function () {
                 register_component_1.RegisterComponent,
                 login_component_1.Login
             ],
-            providers: [register_service_1.RegisterService],
+            providers: [register_service_1.RegisterService, login_service_1.LoginService],
             bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
