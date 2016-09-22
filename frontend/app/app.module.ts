@@ -12,6 +12,8 @@ import { NavBar } from './components/nav-bar.component';
 import { RegisterComponent } from './components/register.component';
 import {Login} from './components/login.component';
 import {MyAlbum} from './components/my-album.component';
+import {AddPhoto} from './components/add-photo.component';
+import {ImageDetail} from './components/image-detail.component';
 
 //Service
 import { LoginService } from './services/login.service';
@@ -39,7 +41,9 @@ import './rxjs-extensions';
     NavBar,
     RegisterComponent,
     Login,
-    MyAlbum
+    MyAlbum,
+    AddPhoto,
+    ImageDetail
   ],
   providers: [
     RegisterService,

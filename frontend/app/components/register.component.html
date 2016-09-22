@@ -34,7 +34,9 @@
         </div>
         <button type="submit" class="ui button">Register</button>
     </form>
-    <div *ngIf="registered">
-        <h1>Register Success!</h1>
+    <div *ngIf="registered" class="ui success message">
+        <div class="header">
+            Your user registered was successful.
+        </div>
     </div>
 </div>

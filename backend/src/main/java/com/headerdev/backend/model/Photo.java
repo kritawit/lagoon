@@ -13,7 +13,7 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 @Entity
 public class Photo {
@@ -30,7 +30,7 @@ public class Photo {
 	private Date created;
 
 	@ManyToOne
-	@JsonIgnore
+	@JsonBackReference
 	private User user;
 
 	private int likes;

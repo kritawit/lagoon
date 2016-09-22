@@ -21,9 +21,14 @@ public class UserResources {
 		return "Login Successful!";
 	}
 
-	@RequestMapping(value = "/user/username", method = RequestMethod.POST)
+	@RequestMapping(value = "/user/userName", method = RequestMethod.POST)
 	public User findByUserName(@RequestBody String userName) {
 		return userService.findByUserName(userName);
 	}
 
+	@RequestMapping(value ="/user/update",method = RequestMethod.POST)
+	public User updateUser(@RequestBody User user){
+		return userService.save(user);
+	}
+	
 }
